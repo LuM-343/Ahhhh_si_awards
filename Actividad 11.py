@@ -73,6 +73,16 @@ def votar():
         except (ValueError, IndexError):
             print("Dato no válido, vuelve a intentarlo")
 
+def mostrar_ganadores():
+    print("\n Ganadores por categoría:")
+    for categoria in peliculas:
+        if peliculas[categoria]:
+            ganadora = max(peliculas[categoria], key=peliculas[categoria].get)
+            votos = peliculas[categoria][ganadora]
+            print(f"{categoria}: {ganadora.title()} ({votos} votos)")
+        else:
+            print(f"{categoria}: No hubo películas nominadas")
+
 print("-"*50)
 print("Bienvenido a los Quiche Awards")
 print("---Ahhhhhhh Siiiii---")
