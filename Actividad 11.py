@@ -83,8 +83,18 @@ def mostrar_ganadores():
         else:
             print(f"{categoria}: No hubo películas nominadas")
 
+def ver_resultados():
+    for clave, valor in peliculas.items():
+        print(f"\nResultados de la categoría {clave}")
+        i=1
+        for pel, votos in valor.items():
+            print(f"{i}. La película {pel} tuvo {votos} votos")
+            i+=1
+        if i==1:
+            print("No hay películas nominadas")
+
 print("-"*50)
-print("Bienvenido a los Quiche Awards")
+print("Bienvenido a los Ahhh Si Awards")
 print("---Ahhhhhhh Siiiii---")
 print("-"*50)
 
@@ -92,8 +102,9 @@ while True:
     print("\nOpciones disponibles")
     print("1. Agregar nueva película")
     print("2. Votar por una película")
-    print("3. Ver los ganadores")
-    print("4. Salir")
+    print("3. Ver votos en tiempo real")
+    print("4. Ver los ganadores")
+    print("5. Salir")
 
     opcion=input("Ingresa una opción: ")
     if opcion=="1":
@@ -103,9 +114,12 @@ while True:
         print("\nRediregiendote al portal de votación...")
         votar()
     elif opcion=="3":
+        print("\n¿Quién ganará?, ¡Qué nervios!")
+        ver_resultados()
+    elif opcion=="4":
         print("\nY el ganador es....")
         mostrar_ganadores()
-    elif opcion=="4":
+    elif opcion=="5":
         print("\nGracias por participar en los Quiche Awards")
         print("Te esperamos el otro año")
         break
