@@ -2,6 +2,7 @@
 # Luis Manuel Velásquez González 1502325
 # Alejandro Daniel de León González 1502425
 
+nombres = []
 peliculas = {
     "Terror": {},
     "Mejor Guión": {},
@@ -42,6 +43,34 @@ def registro():
                 print(f"Película '{pelicula}' registrada en categoría '{categoria}'")
             break
         except ValueError:
+            print("Dato no válido, vuelve a intentarlo")
+
+def votar():
+    while True:
+        try:
+            nombre = input("Ingresa tu nombre: ").strip().lower()
+            nombre = analisis(nombre)
+            if nombre in nombres:
+                print("Lo siento, ya votaste. Ojalá gane tu película favorita")
+                return
+
+            print("\nCategorías disponibles para votar:")
+            for idx, categoria in enumerate(peliculas, 1):
+                print(f"{idx}. {categoria}")
+            categoria_num = int(input("Ingresa el número de la categoría: "))
+            categoria = analisis_categoria(categoria_num)
+            
+            print("\nPelículas nominadas:")
+            for idx, pelicula in enumerate(peliculas[categoria], 1):
+                print(f"{idx}. {pelicula.title()}")
+            opcion = int(input("Selecciona el número de la película por la que deseas votar: "))
+            seleccion = list(peliculas[categoria].keys())[opcion - 1]
+
+            peliculas[categoria][seleccion] += 1
+            nombres.append(nombre)
+            print(f"Voto registrado por '{seleccion}' en la categoría '{categoria}'")
+            break
+        except (ValueError, IndexError):
             print("Dato no válido, vuelve a intentarlo")
 
 print("-"*50)
