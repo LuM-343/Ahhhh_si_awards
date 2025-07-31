@@ -92,6 +92,7 @@ def ver_resultados():
             i+=1
         if i==1:
             print("No hay películas nominadas")
+    print("*"*60)
 
 print("-"*50)
 print("Bienvenido a los Ahhh Si Awards")
