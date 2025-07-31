@@ -1,4 +1,48 @@
+# Programación Avanzada - Actividad No. 11
+# Luis Manuel Velásquez González 1502325
+# Alejandro Daniel de León González 1502425
 
+peliculas = {
+    "Terror": {},
+    "Mejor Guión": {},
+    "Mejor Fotografia": {},
+    "Animación": {},
+    "Romance": {},
+    "Comedia": {}
+}
+
+def analisis(dato):
+    while dato == "":
+        print("Ingresa un nombre válido")
+        dato = input("Ingresala de nuevo: ").lower().strip()
+    return dato
+
+def analisis_categoria(numero):
+    while numero < 1 or numero > 6:
+        print("La categoría no existe")
+        numero = int(input("Ingresala de nuevo: "))
+    categorias = list(peliculas.keys())
+    return categorias[numero - 1]
+
+def registro():
+    while True:
+        try:
+            print("\nCategorías disponibles")
+            for idx, categoria in enumerate(peliculas, 1):
+                print(f"{idx}. {categoria}")
+            categoria_num = int(input("Ingresa el número de la categoría: "))
+            categoria = analisis_categoria(categoria_num)
+
+            pelicula = input("Ingresa la película nueva: ").strip().lower()
+            pelicula = analisis(pelicula)
+            if pelicula in peliculas[categoria]:
+                print("Película ya ingresada")
+            else:
+                peliculas[categoria][pelicula] = 0
+                print(f"Película '{pelicula}' registrada en categoría '{categoria}'")
+            break
+        except ValueError:
+            print("Dato no válido, vuelve a intentarlo")
 
 print("-"*50)
 print("Bienvenido a los Quiche Awards")
