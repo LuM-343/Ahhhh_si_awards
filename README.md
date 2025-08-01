@@ -44,3 +44,6 @@ VALIDACIONES USADAS:
 - No se permiten categorías o películas duplicadas.
 - Solo se permite un voto por persona.
 - Se manejan errores de entrada como números fuera de rango o texto inválido.
+
+# Breve descripción del programa:
+El programa es un sistema de votación para la elección de películas en diferentes categorías. Permite a los usuarios crear nuevas categorías, registrar películas nominadas, emitir un solo voto por cada categoría, presenta los resultados en tiempo real y da a conocer los ganadores. Se implementa validaciones para que la entrada de datos sea correcta y evitar algún tipo de duplicaciones. Ofrece una experiencia sencilla y divertida para gestionar una ceremonia de premiación de películas.
